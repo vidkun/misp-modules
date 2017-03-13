@@ -42,7 +42,7 @@ moduleinfo = {'version': '0.1', 'author': 'Ryan LeViseur',
               'description': 'Runs search and imports threat intelligence artifacts from Splunk Enterprise Security.',
               'module-type': ['import']}
 
-moduleconfig = []
+moduleconfig = [ 'splunk_es_server', 'splunk_es_server_port' ]
 
 def handler(q=False):
     if q is False:
