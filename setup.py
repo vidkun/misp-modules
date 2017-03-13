@@ -38,6 +38,6 @@ setup(
         'pillow',
         'pytesseract',
         'shodan',
-        'splunk-sdk'
+        'splunk-sdk',
     ],
 )
