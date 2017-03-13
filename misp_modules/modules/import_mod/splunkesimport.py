@@ -98,7 +98,7 @@ def version():
   moduleinfo['config'] = moduleconfig
   return moduleinfo
 
-def splunkLogin(user, password, baseurl)
+def splunkLogin(user, password, baseurl):
   # Authenticate with server.
   # Disable SSL cert validation. Splunk certs are self-signed.
   serverContent = httplib2.Http(disable_ssl_certificate_validation=True).request(baseurl + '/services/auth/login',
@@ -106,7 +106,7 @@ def splunkLogin(user, password, baseurl)
 
   return minidom.parseString(serverContent).getElementsByTagName('sessionKey')[0].childNodes[0].nodeValue
 
-def splunkSearch(searchQuery, sessionKey, baseurl)
+def splunkSearch(searchQuery, sessionKey, baseurl):
   # Remove leading and trailing whitespace from the search
   searchQuery = searchQuery.strip()
 
@@ -123,7 +123,7 @@ def splunkSearch(searchQuery, sessionKey, baseurl)
 
   return jobID
 
-def getSplunkSearchStatus(jobId, sessionKey, baseurl)
+def getSplunkSearchStatus(jobId, sessionKey, baseurl):
   # Check the status of the search job
   jobStatus = httplib2.Http(disable_ssl_certificate_validation=True).request(baseurl + '/services/search/jobs/%s' % jobId,'GET',
   headers={'Authorization': 'Splunk %s' % sessionKey},)[1]
@@ -133,7 +133,7 @@ def getSplunkSearchStatus(jobId, sessionKey, baseurl)
     if element.getAttribute('name') == "isDone":
       return element.childNodes[0].nodeValue
 
-def getSplunkSearchResults(jobId, sessionKey, baseurl)
+def getSplunkSearchResults(jobId, sessionKey, baseurl):
   # Pull down the results of the search
   results = httplib2.Http(disable_ssl_certificate_validation=True).request(baseurl + '/services/search/jobs/%s/results' % jobId,'GET',
   headers={'Authorization': 'Splunk %s' % sessionKey},)[1]
