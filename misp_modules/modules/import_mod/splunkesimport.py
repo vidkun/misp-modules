@@ -1,6 +1,7 @@
 import json
 import base64
-import splunklib
+import splunklib.client
+import splunklib.results
 
 misperrors = {'error': 'Error'}
 userConfig = {
