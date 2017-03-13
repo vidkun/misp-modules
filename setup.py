@@ -38,5 +38,6 @@ setup(
         'pillow',
         'pytesseract',
         'shodan',
+        'httplib2',
     ],
 )

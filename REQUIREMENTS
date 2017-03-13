@@ -20,4 +20,4 @@ SPARQLWrapper
 domaintools_api
 pygeoip
 bs4
-splunk-sdk
+httplib2
