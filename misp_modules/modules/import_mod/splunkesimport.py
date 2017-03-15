@@ -78,7 +78,7 @@ def handler(q=False):
   searchResults = getSplunkSearchResults(searchId, sessionKey, baseurl)
 
   # For now just return request to get basic skel of module working
-  return request
+  return { results: searchResults }
 
 def introspection():
   modulesetup = {}
