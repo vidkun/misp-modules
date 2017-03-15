@@ -51,10 +51,11 @@ def handler(q=False):
   if q is False:
       return False
   request = json.loads(q)
-  config = q.get("config", {})
+  # config = q.get("config", {})
 
-  baseurl = "https://{0}:{1}".format(config.get("splunk_es_server", None),
-                                     config.get("splunk_es_server_port", None))
+  # baseurl = "https://{0}:{1}".format(config.get("splunk_es_server", None),
+                                     # config.get("splunk_es_server_port", None))
+  baseurl = "https://192.168.56.1:8089"                                  
   userName = 'admin'
   password = 'changeme'
 
